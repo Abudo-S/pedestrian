@@ -26,7 +26,7 @@ for i in range(3):
             strr="3/ped_examples/"
             
         img=np.array(Image.open(strr+"img_"+"{0:05}".format(j)+".pgm"))
-        labels.append(1) 
+        labels.append(1) #pedestrian 
         images_data=np.append(images_data,img) 
     for j in range(5000):
         if i==0:
@@ -36,7 +36,7 @@ for i in range(3):
         else:
             strr="3/non-ped_examples/"
         img=np.array(Image.open(strr+"img_"+"{0:05}".format(j)+".pgm"))
-        labels.append(0) 
+        labels.append(0) #non-pedestrian 
         images_data=np.append(images_data,img)     
         
 df=pd.DataFrame(images_data,columns=["data"]) 
