@@ -17,7 +17,7 @@ print(list(c.getdata()))
 labels=[]
 images_data=[]
 for i in range(3):
-    for j in range(4800):
+    for j in range(300): #4800
         if i==0:
             strr="1/ped_examples/"
         elif i==1:
@@ -28,7 +28,7 @@ for i in range(3):
         img=np.array(Image.open(strr+"img_"+"{0:05}".format(j)+".pgm"))
         labels.append(1) #pedestrian 
         images_data=np.append(images_data,img) 
-    for j in range(5000):
+    for j in range(300): #5000
         if i==0:
             strr="1/non-ped_examples/"
         elif i==1:
@@ -40,7 +40,8 @@ for i in range(3):
         images_data=np.append(images_data,img)     
         
 df=pd.DataFrame(images_data,columns=["data"]) 
-print(df.head())
+#print(df.head())
+#print(labels)
      
 
       
