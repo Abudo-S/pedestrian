@@ -2,10 +2,6 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 from sklearn import svm
-'''
-c=Image.open("img_00000.pgm")
-print(list(c.getdata()))
-'''
 
 labels = []
 images_data = []
@@ -55,16 +51,5 @@ df2 = pd.DataFrame(images_test_data, columns=["data"])
 print(df1.head())
 print(df2.head())
 
-
 print(labels)
 print(test_labels)
-
-##df=pd.DataFrame(images_data,columns=["data"]) 
-#df=pd.DataFrame(images_data,columns=["data"]) 
-#print(df.head())
-#print(labels)
-#
-#SVM=svm.SVC()
-#
-#SVM.fit(df,labels)
-#print(SVM.predict(df))
