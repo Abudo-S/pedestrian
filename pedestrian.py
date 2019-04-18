@@ -9,6 +9,8 @@ Created on Sat Apr 13 21:44:54 2019
 from PIL import Image
 import numpy as np
 import pandas as pd
+
+from sklearn import svm
 '''
 c=Image.open("img_00000.pgm")
 print(list(c.getdata()))
@@ -61,9 +63,14 @@ for i in range(2):  #load_testing_dataset
         
         
 #df=pd.DataFrame(images_data,columns=["data"]) 
-df=pd.DataFrame(images_test_data,columns=["data"]) 
+df=pd.DataFrame(images_data,columns=["data"]) 
 print(df.head())
 print(labels)
+
+SVM=svm.SVC()
+
+SVM.fit(df,labels)
+print(SVM.predict(df))
      
 
       
