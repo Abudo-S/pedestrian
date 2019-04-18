@@ -15,7 +15,3 @@ class SVM:
        self.SVC.fit(df,labels)
        print(self.SVC.predict(df))
     
-=======
-class SVM:
-    pass
->>>>>>> 1713b0889c578dbd4158c650d9af904f91e69b10
