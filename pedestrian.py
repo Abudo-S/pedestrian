@@ -1,15 +1,13 @@
 from PIL import Image
 import numpy as np
 import pandas as pd
-<<<<<<< HEAD
+
 #from sklearn import svm
 from SVM import SVM 
 '''
 c=Image.open("img_00000.pgm")
 print(list(c.getdata()))
 '''
-=======
->>>>>>> d612446f718faf2bbef33b9cb288b1348012bc5a
 
 labels = [] 
 images_data = [] 
@@ -59,7 +57,6 @@ df2 = pd.DataFrame(images_test_data, columns=["data"])
 #print(df1.head())
 #print(df2.head())
 
-<<<<<<< HEAD
 #print(labels)
 #print(test_labels)
 svc=SVM()
@@ -74,7 +71,6 @@ print(svc.apply_fit_predict(df1,labels,df2))
 #
 #SVM.fit(df,labels)
 #print(SVM.predict(df))
-=======
 print(labels)
 print(test_labels)
->>>>>>> d612446f718faf2bbef33b9cb288b1348012bc5a
+
