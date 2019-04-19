@@ -48,12 +48,12 @@ def readFile():
 df = readFile()
 print(df.head())
 
-# X = df['data'].values
-# y = df['label'].values
+X = df['data'].values
+y = df['label'].values
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
-# print(X_train)
+print(X_train)
 
 # svc_algo = our_svm()
 # svc_algo.apply_fit_predict(X_train, y_train, X_test)
