@@ -1,14 +1,15 @@
 from PIL import Image
 import numpy as np
 import pandas as pd
-from sklearn import svm
+#from sklearn import svm
+from SVM import SVM 
 '''
 c=Image.open("img_00000.pgm")
 print(list(c.getdata()))
 '''
 
-labels = []
-images_data = []
+labels = [] 
+images_data = [] 
 
 test_labels = []
 images_test_data = []
@@ -52,12 +53,13 @@ for i in range(1,3):
 df1 = pd.DataFrame(images_data, columns=["data"])
 df2 = pd.DataFrame(images_test_data, columns=["data"])
 
-print(df1.head())
-print(df2.head())
+#print(df1.head())
+#print(df2.head())
 
-
-print(labels)
-print(test_labels)
+#print(labels)
+#print(test_labels)
+svc=SVM()
+print(svc.apply_fit_predict(df1,labels,df2))
 
 ##df=pd.DataFrame(images_data,columns=["data"]) 
 #df=pd.DataFrame(images_data,columns=["data"]) 

@@ -12,5 +12,5 @@ class SVM:
     
     def apply_fit_predict(self,df,labels,test):
        self.SVC.fit(df,labels)
-       print(self.SVC.predict(df))
+       print(self.SVC.predict(test))
     
