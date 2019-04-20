@@ -14,10 +14,10 @@ length1=500
 length2=500  
 
 labels = [] 
-images_data =[]
+#images_data =[]
 
 test_labels = []
-images_test_data = []
+#images_test_data = []
 features=[]
 
 for i in range(648):
@@ -34,7 +34,7 @@ for i in range(1,4):
         img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))  
         img = img.flatten()
         df1.loc[j+((i-1)*length1)]=img
-        images_data=np.append(images_data, img)
+        #images_data=np.append(images_data, img)
         labels.append(1) #pedestrian
         
 for i in range(1,4):
@@ -45,7 +45,7 @@ for i in range(1,4):
         img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
         img = img.flatten()
         df1.loc[j+((i-1)*length2+(3*length1))]=img
-        images_data=np.append(images_data, img)
+        #images_data=np.append(images_data, img)
         labels.append(0) #non-pedestrian
      
 #load_testing_dataset
@@ -57,7 +57,7 @@ for i in range(1,3):
          img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
          img = img.flatten()
          df2.loc[j+((i-1)*length1)]=img
-         images_test_data=np.append(images_test_data, img)
+         #images_test_data=np.append(images_test_data, img)
          test_labels.append(1) #pedestrian
 
      for j in range(length2): #5000
@@ -67,12 +67,11 @@ for i in range(1,3):
          img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
          img = img.flatten()
          df2.loc[j+((i-1)*length2+(2*length1))]=img
-         images_test_data=np.append(images_test_data, img)
+         #images_test_data=np.append(images_test_data, img)
          test_labels.append(1) #non-pedestrian
             
-images_data = images_data.reshape((length1*3)+(length2*3),648)
-images_test_data = images_test_data.reshape((length1*2)+(length2*2),648)
-#df1 = pd.DataFrame(images_data,columns=features) 
+#images_data = images_data.reshape((length1*3)+(length2*3),648)
+#images_test_data = images_test_data.reshape((length1*2)+(length2*2),648)
 #print(df1.info)
 #print(df2.info)
 
@@ -81,16 +80,8 @@ images_test_data = images_test_data.reshape((length1*2)+(length2*2),648)
 
 svc=SVM()
 y_pred=svc.apply_fit_predict(df1,labels,df2)
-svc.print_accurcy(test_labels,y_pred)
-##df=pd.DataFrame(images_data,columns=["data"]) 
-#df=pd.DataFrame(images_data,columns=["data"]) 
-#print(df.head())
-#print(labels)
-#
-#SVM=svm.SVC()
-#
-#SVM.fit(df,labels)
-#print(SVM.predict(df))
+svc.print_accuracy(test_labels,y_pred)
+
 #print(labels)
 #print(test_labels)
 

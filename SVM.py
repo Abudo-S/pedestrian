@@ -9,6 +9,8 @@ class SVM:
        self.SVC.fit(df,labels)
        return self.SVC.predict(test)
        
-    def print_accurcy(self,y_test,y_pred):
-        print(accuracy_score(y_test,y_pred))
+    def print_accuracy(self,y_test,y_pred):
+        print("accuracy:"+str(accuracy_score(y_test,y_pred)))
+    
+        
     
