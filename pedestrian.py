@@ -69,7 +69,7 @@ for i in range(1,3):
          img = img.flatten()
          df2.loc[j+((i-1)*length2+(2*length1))]=img
          #images_test_data=np.append(images_test_data, img)
-         test_labels.append(1) #non-pedestrian
+         test_labels.append(0) #non-pedestrian
             
 #images_data = images_data.reshape((length1*3)+(length2*3),648)
 #images_test_data = images_test_data.reshape((length1*2)+(length2*2),648)
@@ -80,7 +80,7 @@ for i in range(1,3):
 #print(test_labels)
 
 svc=SVM()
-y_pred=svc.apply_fit_predict(df1,labels,df2)
+y_pred=svc.apply_fit_predict(df1.values,labels,df2.values)
 svc.print_accuracy(test_labels,y_pred)
 
 #print(labels)
