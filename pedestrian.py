@@ -1,10 +1,8 @@
 from PIL import Image
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from SVM import our_svm
+#from sklearn.model_selection import train_test_split
 
-<<<<<<< HEAD
 #from sklearn import svm
 from SVM import SVM 
 '''
@@ -87,13 +85,13 @@ svc.print_accuracy(test_labels,y_pred)
 
 #print(labels)
 #print(test_labels)
-=======
+
 # labels = np.array([])
 # images_data = np.array([])
 
 # test_labels = []
 # images_test_data = []
-
+'''
 def loadImages():
     images_data = np.array([])
 
@@ -138,7 +136,7 @@ y = df['label'].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 print(X_train)
-
+'''
 # svc_algo = our_svm()
 # svc_algo.apply_fit_predict(X_train, y_train, X_test)
 
@@ -173,7 +171,6 @@ print(X_train)
 # print(test_labels)
 
 # X_train, X_test, y_train, y_test = train_test_split(images_data, labels, test_size=0.4)
->>>>>>> 385d046c9353ec1fa72029da658c83aef5ddb7b5
 
 # svc_algo = our_svm()
 # svc_algo.apply_fit_predict(X_train, y_train, X_test)
