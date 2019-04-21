@@ -60,31 +60,31 @@ def make_csv_from_df1(start,end,df1):
 def make_csv_from_df2(start,end,df2):   
     #load_testing_dataset
     for i in range(start,end):
-         for j in range(length1): #4800
-             file_dir = "/ped_examples/"
-             strr = ('T' + str(i) + file_dir)
-             
-             img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
-             img = img.flatten()
-             img=np.append(img,1)
-             print(img)
-             df2.loc[j+((i-1)*length1)]=img
-             #images_test_data=np.append(images_test_data, img)
-             test_labels.append(1) #pedestrian
-             
+        for j in range(length1): #4800
+            file_dir = "/ped_examples/"
+            strr = ('T' + str(i) + file_dir)
+            
+            img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
+            img = img.flatten()
+            img=np.append(img,1)
+            print(img)
+            df2.loc[j+((i-1)*length1)]=img
+            #images_test_data=np.append(images_test_data, img)
+            test_labels.append(1) #pedestrian
+
     #for i in range(start,end):
-         for j in range(length2): #5000
-             file_dir = "/non-ped_examples/"
-             strr = ('T' + str(i) + file_dir)
-             
-             img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
-             img = img.flatten()
-             img=np.append(img,0)
-             print(img)
-             df2.loc[j+((i-1)*length2+(2*length1))]=img
-             #images_test_data=np.append(images_test_data, img)
-             test_labels.append(0) #non-pedestrian
-         df2.to_csv('test_pedestrian.csv', index=False, mode='w')
+        for j in range(length2): #5000
+            file_dir = "/non-ped_examples/"
+            strr = ('T' + str(i) + file_dir)
+            
+            img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
+            img = img.flatten()
+            img=np.append(img,0)
+            print(img)
+            df2.loc[j+((i-1)*length2+(2*length1))]=img
+            #images_test_data=np.append(images_test_data, img)
+            test_labels.append(0) #non-pedestrian
+        df2.to_csv('test_pedestrian.csv', index=False, mode='w')
 
 train = pd.read_csv('pedestrian.csv')
 X1 = train.drop('ped',axis=1).values
