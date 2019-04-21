@@ -82,7 +82,7 @@ for i in range(1,3):
 svc=SVM()
 #param=svc.apply_grid_search(df1.values,labels)
 #y_pred=svc.apply_fit_predict(df1.values,labels,df2.values,param)
-y_pred=svc.apply_fit_predict(df1.astype(float),labels,df2.astype(float))
+y_pred=svc.apply_fit_predict(df1,labels,df2)
 svc.print_accuracy(test_labels,y_pred)
 
 #print(labels)
