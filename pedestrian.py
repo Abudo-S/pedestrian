@@ -17,25 +17,26 @@ def loadImages():
     for i in range(1,4):
         print(i)
 
-        for j in range(4000): #4800
+        for j in range(200): #4800
             ## Pedestrian
             file_dir = '/ped_examples/'
             strr = (str(i) + file_dir)
             
             img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
             # labels = np.append(labels, 1) #pedestrian
-            images_data = np.append(images_data, [img, 1])
-
+            images_data = np.append(images_data, [img.flatten(), 1])
+            
             ## Nonpedestrian
             file_dir = '/non-ped_examples/'
             strr = (str(i) + file_dir)
             
             img = np.array(Image.open(strr + "img_" + "{0:05}".format(j) + ".pgm"))
             # labels = np.append(labels, 0) #non-pedestrian
-            images_data = np.append(images_data, [img, 0])
+            images_data = np.append(images_data, [img.flatten(), 0])
 
     df = pd.DataFrame({'data':images_data[::2], 'label':images_data[1::2]})
-    df.to_csv('pedestrian.csv', index=False, mode='a', header=False)
+    # df.to_csv('pedestrian.csv', index=False, mode='a', header=False)
+    return df
 
 def readFile():
     return pd.read_csv('pedestrian.csv')
@@ -45,15 +46,19 @@ def readFile():
 # loadImages()
 
 ## applied each time you run
-df = readFile()
+# df = readFile()
+
+df = loadImages()
+
 print(df.head())
+print(df.info())
 
 X = df['data'].values
 y = df['label'].values
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+# print(X)
 
-print(X_train)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 # svc_algo = our_svm()
 # svc_algo.apply_fit_predict(X_train, y_train, X_test)
