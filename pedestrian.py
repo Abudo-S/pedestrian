@@ -1,10 +1,13 @@
 from PIL import Image
 import numpy as np
 import pandas as pd
+import tensorflow as tf
 #from sklearn.model_selection import train_test_split
 
 #from sklearn import svm
 from SVM import SVM 
+from KNN import KNN
+from CNN import CNN
 '''
 c=Image.open("img_00000.pgm")
 print(list(c.getdata()))
@@ -94,11 +97,20 @@ test=pd.read_csv('test_pedestrian.csv')
 X2 = test.drop('ped',axis=1).values
 y2 = test['ped'].values
          
-
+#model = tf.keras.models.Sequential([
+#  tf.keras.layers.Dense(300, activation=tf.nn.relu),
+#  tf.keras.layers.Dropout(0.2),
+#  tf.keras.layers.Dense(2, activation=tf.nn.softmax)
+#])
+#model.compile(optimizer='adam',
+#              loss='sparse_categorical_crossentropy',
+#              metrics=['accuracy'])
+#model.fit(X1,y1, epochs=7)
+#model.evaluate(X2,y2)
 #images_data = images_data.reshape((length1*3)+(length2*3),648)
 #images_test_data = images_test_data.reshape((length1*2)+(length2*2),648)
-#print(df1.info)
-#print(df2.info)
+#print(df1.info())
+#print(df2.info())
 
 #print(labels)
 #print(test_labels)
@@ -106,6 +118,14 @@ y2 = test['ped'].values
 svc=SVM()
 y_pred=svc.apply_fit_predict(X1,y1,X2)
 svc.print_accuracy(y2,y_pred)
+
+knn=KNN()
+y_pred=knn.apply_fit_predict(X1,y1,X2)
+knn.print_accuracy(y2,y_pred)
+
+#cnn=CNN()
+#cnn.cnn_model_fn(X1,y1,tf.estimator.ModeKeys.TRAIN)
+#cnn.cnn_model_fn(X2,y2,tf.estimator.ModeKeys.PREDICT)
 
 #print(labels)
 #print(test_labels)

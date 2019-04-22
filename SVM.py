@@ -29,9 +29,8 @@ class SVM:
 #        print(param)
 #        self.SVC.fit(train,labels)
 #        return self.SVC.predict(test)
-    
     def print_accuracy(self,y_test,y_pred):
-        print("accuracy:"+str(accuracy_score(y_test,y_pred)))
+        print("SVM_accuracy:"+str(accuracy_score(y_test,y_pred)))
         
     
     
