@@ -6,8 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 class KNN:
     knn = KNeighborsClassifier(n_neighbors=4)
-
-    
+   
     def __init__(self): 
         steps=[('scaler',StandardScaler()),('knn',self.knn)]
         self.pipeline=Pipeline(steps)
